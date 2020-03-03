@@ -391,6 +391,16 @@ named capturing groups - backreferences
   (backreference_escape (group_name))
 ))
 
+===================
+numbered backreferences
+===================
+(.)\1
+---
+
+(pattern (term
+  (anonymous_capturing_group (pattern (term (any_character))))
+  (backreference_escape)
+))
 
 ===================
 a date regex

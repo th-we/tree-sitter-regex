@@ -113,9 +113,12 @@ module.exports = grammar({
       '}'
     )),
 
-    backreference_escape: $ => seq('\\k', $.group_name),
+    backreference_escape: $ => choice(
+      seq('\\k', $.group_name),
+      /\\[1-9][0-9]*/
+    ),
 
-    decimal_escape: $ => /\\[1-9][0-9]+/,
+    decimal_escape: $ => /\\[1-9][0-9]*/,
 
     character_class_escape: $ => choice(
       /\\[dDsSwW]/,
